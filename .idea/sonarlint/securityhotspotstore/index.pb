@@ -13,3 +13,5 @@ n
 >src/main/java/com/gesplan/supplier/shared/ValidationUtils.java,1\3\1341509ebe249a02c1e69ca085bd5d309728cdeb
 k
 ;src/main/java/com/gesplan/supplier/SupplierApplication.java,4\4\44730d7c3271bd9698ca13451ad7e53f9ce4a37a
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
