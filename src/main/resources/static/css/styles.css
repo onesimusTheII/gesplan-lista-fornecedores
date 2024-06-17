@@ -1,5 +1,6 @@
+/* Estilos gerais */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Roboto, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
@@ -33,6 +34,7 @@ header h1 {
     padding: 5px;
 }
 
+/* Estilos da barra de ferramentas */
 .toolbar {
     display: flex;
     align-items: center;
@@ -40,6 +42,7 @@ header h1 {
     padding: 10px 20px;
     background-color: #f0f0f0;
     border-bottom: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .toolbar .btn {
@@ -70,8 +73,9 @@ header h1 {
     cursor: not-allowed;
 }
 
+/* Estilos da tabela */
 .table-wrapper {
-    padding: 0 20px 20px 20px;
+    overflow-x: auto;
 }
 
 table {
@@ -79,15 +83,18 @@ table {
     border-collapse: collapse;
     margin-top: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-table, th, td {
-    border: 1px solid #ccc;
+    text-align: center;
 }
 
 th, td {
     padding: 12px;
-    text-align: left;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+}
+
+table td:nth-child(4) {
+    white-space: nowrap;
 }
 
 thead {
@@ -98,6 +105,7 @@ tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+/* Estilos dos botões */
 .button {
     padding: 10px 15px;
     margin-right: 10px;
@@ -109,7 +117,19 @@ tbody tr:nth-child(even) {
     font-size: 14px;
 }
 
-.button.green {
+/* Estilos dos botões */
+.button-hidden {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    background-color: #ff9800;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#submit {
     background-color: #28a745;
 }
 
@@ -118,6 +138,7 @@ tbody tr:nth-child(even) {
     cursor: not-allowed;
 }
 
+/* Estilos do formulário e da modal */
 #form-container {
     display: none;
     position: fixed;
@@ -131,12 +152,18 @@ tbody tr:nth-child(even) {
 }
 
 .modal-content {
+    font-family: Roboto, sans-serif;
     background-color: #fefefe;
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 50%;
+    width: 90%;
     position: relative;
+    border-radius: 5px;
+}
+
+h2 {
+    margin-top: 2px;
 }
 
 .close-button {
@@ -154,46 +181,81 @@ tbody tr:nth-child(even) {
     cursor: pointer;
 }
 
+/* Estilos dos ícones */
 .favorite-btn {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1.5em;
+    font-size: 32px;
     padding: 0;
-    color: gold; /* Define a cor dourada para o ícone */
+    border-radius: 20px;
+    color: gold;
 }
 
 .favorite-btn:hover {
-    color: darkgoldenrod; /* Altera a cor ao passar o mouse (opcional) */
+    color: darkgoldenrod;
 }
 
-.table-wrapper {
-    padding: 0 20px 20px 20px;
-    overflow-x: auto;
+/* Estilos do formulário */
+.form-section {
+    margin-bottom: 20px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.form-section #name,
+.form-section #email,
+.form-section #type {
+    display: inline-flex;
+    padding: 5px;
+    width: 300px;
+}
+
+.form-section #observation {
+    display: block;
+    padding: 45px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.form-section input,
+.form-section select,
+.form-section textarea {
+    width: calc(33% - 10px);
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.form-section #phone-section {
+    display: flex;
+    align-items: center;
+}
+
+.phone-entry {
+    padding: 3px;
+}
+
+/* Estilos das ações do formulário */
+.form-actions {
+    text-align: right;
     margin-top: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
 }
 
-th, td {
-    padding: 12px;
-    text-align: center;
-    vertical-align: middle;
+.form-actions .button {
+    margin-right: 8px;
 }
 
-table td:nth-child(4) {
-    white-space: nowrap;
+#add-phone {
+    margin-left: -1px;
 }
 
-thead {
-    background-color: #f0f0f0;
+.remove-phone {
+    margin-left: -1px;
+    background-color: #ff9800;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+.required {
+    color: red;
 }

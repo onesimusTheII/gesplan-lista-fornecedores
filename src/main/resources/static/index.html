@@ -39,28 +39,46 @@
     <div id="form-container" class="modal">
         <div class="modal-content">
             <span class="close-button" id="close-modal">&times;</span>
-            <h2>Formulário de Fornecedor</h2>
+            <h2>Novo Fornecedor</h2>
             <form id="supplier-form">
-                <label>Nome: <input type="text" id="name" required></label><br>
-                <label>E-mail: <input type="email" id="email" required></label><br>
-                <div id="phones">
-                    <label>Telefones:
-                        <input type="tel" class="phone" required>
-                        <button type="button" id="add-phone" class="button">+</button>
-                    </label><br>
+                <!-- Seção 1: Nome, Email e Tipo de Fornecedor -->
+                <div class="form-section">
+                        <label>Nome:<span class="required">*</span> <input type="text" id="name" required></label>
+                        <label>E-mail:<span class="required">*</span> <input type="email" id="email" required></label>
+                        <label>Tipo de Fornecedor:<span class="required">*</span>
+                        <select id="type">
+                            <option value="Atacadista">Atacadista</option>
+                            <option value="Distribuidor">Distribuidor</option>
+                            <option value="Fabricante">Fabricante</option>
+                            <option value="Varejista">Varejista</option>
+                        </select>
+                    </label>
                 </div>
-                <label>Tipo de Fornecedor:
-                    <select id="type" required>
-                        <option value="Atacadista">Atacadista</option>
-                        <option value="Distribuidor">Distribuidor</option>
-                        <option value="Fabricante">Fabricante</option>
-                        <option value="Varejista">Varejista</option>
-                    </select>
-                </label><br>
-                <label>Observação: <textarea id="observation"></textarea></label><br>
-                <button type="submit" class="button green">Salvar</button>
-                <button type="button" class="button" id="cancel">Cancelar</button>
+
+                <!-- Seção 2: Telefones -->
+                <div class="form-section" id="phone-section">
+                    <label>Telefones:<span class="required">*</span></label>
+                    <div id="phones">
+                        <div class="phone-entry">
+                            <input type="tel" class="phone" required>
+                            <button type="button" class="add-phone button">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seção 3: Observação -->
+                <div class="form-section">
+                    <label>Observações:</label>
+                    <textarea id="observation" style="width: 80%; height: 50%;"></textarea>
+                </div>
+
+                <!-- Botões de Ação -->
+                <div class="form-actions">
+                    <button type="button" class="button" id="cancel">Cancelar</button>
+                    <button type="submit" class="button save" id="submit">Salvar</button>
+                </div>
             </form>
+
         </div>
     </div>
 </div>

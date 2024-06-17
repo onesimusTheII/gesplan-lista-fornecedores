@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const deleteButton = document.getElementById("delete");
     const cancelButton = document.getElementById("cancel");
     const addPhoneButton = document.getElementById("add-phone");
+    const closeModalButton = document.getElementById("close-modal");
+    const phoneSection = document.getElementById("phone-section");
 
     let selectedSupplierId = null;
     let isEditing = false; // Flag para indicar se estamos editando um fornecedor
@@ -92,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (selectedIds.length > 0) {
             fetch("desafio/api/suppliers", {
                 method: "DELETE",
-                headers: { "Content-Type": "application/json" },
+                headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(selectedIds)
             }).then(() => {
                 fetchSuppliers();
@@ -102,14 +104,47 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    closeModalButton.addEventListener('click', () => {
+        closeFormModal();
+    });
+
     cancelButton.addEventListener("click", () => {
         closeFormModal();
     });
 
-    addPhoneButton.addEventListener("click", () => {
-        const newPhoneField = document.querySelector(".phone").cloneNode(true);
-        newPhoneField.value = "";
-        addPhoneButton.parentNode.insertBefore(newPhoneField, addPhoneButton);
+    // Event listener para adicionar telefone
+    phoneSection.addEventListener("click", (event) => {
+        if (event.target.classList.contains("add-phone")) {
+            const lastPhoneEntry = phoneSection.lastElementChild;
+
+            // Cria uma nova entrada de telefone
+            const newPhoneEntry = document.createElement("div");
+            newPhoneEntry.classList.add("phone-entry");
+            newPhoneEntry.innerHTML = `
+                <input type="tel" class="phone" required>
+                <button type="button" class="add-phone button">+</button>
+                <button type="button" class="remove-phone button">-</button>
+            `;
+
+            // Adiciona a nova entrada de telefone ao final da seção de telefones
+            phoneSection.appendChild(newPhoneEntry);
+        }
+
+        // Event listener para remover telefone
+        if (event.target.classList.contains("remove-phone")) {
+            const phoneEntry = event.target.closest(".phone-entry");
+
+            // Remove apenas se houver mais de um telefone visível
+            const phoneEntries = phoneSection.querySelectorAll(".phone-entry");
+            if (phoneEntries.length > 1) {
+                phoneEntry.remove();
+
+                // Mostra ou esconde o botão de remover conforme necessário
+                if (phoneEntries.length === 1) {
+                    phoneEntries[0].querySelector(".remove-phone").style.display = "none";
+                }
+            }
+        }
     });
 
     supplierForm.addEventListener("submit", (e) => {
