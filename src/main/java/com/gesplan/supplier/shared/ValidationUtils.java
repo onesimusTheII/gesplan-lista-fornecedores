@@ -42,13 +42,12 @@ public class ValidationUtils
 		return Pattern.compile(regex).matcher(email).matches();
 	}
 
-	public boolean isValidPhoneNumber(String phoneNumber)
-	{
-		if (phoneNumber == null)
-		{
+	public boolean isValidPhoneNumber(String phoneNumber) {
+		if (phoneNumber == null) {
 			return false;
 		}
-		String regex = "^\\(\\d{2}\\) \\d \\d{4}-\\d{4}$";
+		// Define o regex para os dois formatos aceitos
+		String regex = "^\\(\\d{2}\\) \\d{4}-\\d{4}$|^\\(\\d{2}\\) \\d \\d{4}-\\d{4}$";
 		return Pattern.compile(regex).matcher(phoneNumber).matches();
 	}
 }

@@ -206,15 +206,17 @@ h2 {
 .form-section #type {
     display: inline-flex;
     padding: 5px;
-    width: 300px;
+    width: 250px;
 }
 
 .form-section #observation {
     display: block;
+    text-align: left;
     padding: 45px;
     border: 1px solid #ccc;
     border-radius: 3px;
     box-sizing: border-box;
+    resize: none;
 }
 
 .form-section input,
@@ -226,6 +228,7 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 3px;
     box-sizing: border-box;
+    text-align: left!important;
 }
 
 .form-section #phone-section {
