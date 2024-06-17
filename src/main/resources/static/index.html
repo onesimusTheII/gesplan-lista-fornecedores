@@ -5,54 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Fornecedores</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 <div class="container">
-    <h1>Lista de Fornecedores</h1>
-    <div>
-        <button id="new">Novo</button>
-        <button id="edit" disabled>Editar</button>
-        <button id="delete" disabled>Excluir</button>
+    <header>
+        <h1>Fornecedores</h1>
+        <input type="text" id="search-bar" placeholder="Buscar...">
+    </header>
+    <div class="toolbar">
+        <button id="new" class="btn"><i class="fas fa-plus"></i> Novo</button>
+        <button id="edit" class="btn edit" disabled><i class="fas fa-edit"></i> Editar</button>
+        <button id="delete" class="btn delete" disabled><i class="fas fa-trash"></i> Excluir</button>
     </div>
-    <table>
-        <thead>
-        <tr>
-            <th></th>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Telefone</th>
-            <th>Tipo de Fornecedor</th>
-            <th>Observação</th>
-            <th>Favorito</th>
-        </tr>
-        </thead>
-        <tbody id="supplier-list">
-        <!-- Fornecedores serão adicionados aqui -->
-        </tbody>
-    </table>
-    <div id="form-container" style="display:none;">
-        <h2>Formulário de Fornecedor</h2>
-        <form id="supplier-form">
-            <label>Nome: <input type="text" id="name" required></label><br>
-            <label>E-mail: <input type="email" id="email" required></label><br>
-            <div id="phones">
-                <label>Telefones:
-                    <input type="tel" class="phone" required>
-                    <button type="button" id="add-phone">Adicionar Telefone</button>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Telefone</th>
+                <th>Tipo de Fornecedor</th>
+                <th>Observação</th>
+                <th>Favorito</th>
+            </tr>
+            </thead>
+            <tbody id="supplier-list">
+            <!-- Fornecedores serão adicionados aqui -->
+            </tbody>
+        </table>
+    </div>
+    <div id="form-container" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-modal">&times;</span>
+            <h2>Formulário de Fornecedor</h2>
+            <form id="supplier-form">
+                <label>Nome: <input type="text" id="name" required></label><br>
+                <label>E-mail: <input type="email" id="email" required></label><br>
+                <div id="phones">
+                    <label>Telefones:
+                        <input type="tel" class="phone" required>
+                        <button type="button" id="add-phone" class="button">+</button>
+                    </label><br>
+                </div>
+                <label>Tipo de Fornecedor:
+                    <select id="type" required>
+                        <option value="Atacadista">Atacadista</option>
+                        <option value="Distribuidor">Distribuidor</option>
+                        <option value="Fabricante">Fabricante</option>
+                        <option value="Varejista">Varejista</option>
+                    </select>
                 </label><br>
-            </div>
-            <label>Tipo de Fornecedor:
-                <select id="type" required>
-                    <option value="Atacadista">Atacadista</option>
-                    <option value="Distribuidor">Distribuidor</option>
-                    <option value="Fabricante">Fabricante</option>
-                    <option value="Varejista">Varejista</option>
-                </select>
-            </label><br>
-            <label>Observação: <textarea id="observation"></textarea></label><br>
-            <button type="submit">Salvar</button>
-            <button type="button" id="cancel">Cancelar</button>
-        </form>
+                <label>Observação: <textarea id="observation"></textarea></label><br>
+                <button type="submit" class="button green">Salvar</button>
+                <button type="button" class="button" id="cancel">Cancelar</button>
+            </form>
+        </div>
     </div>
 </div>
 <script src="js/script.js"></script>
